@@ -6,3 +6,4 @@ raw_data/
 *.csv
 **/__pycache__/
 .env
+Demo_Project_NLP_sentiment_analysis_benbhk/models/other_models/
