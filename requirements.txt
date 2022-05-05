@@ -18,11 +18,11 @@ gensim
 # yapf
 
 # API
-gcsfs
-google-cloud-storage
-s3fs
+# gcsfs
+# google-cloud-storage
+# s3fs
 
 # utilities
 pillow
 streamlit
-six>=1.14
+# six>=1.14
