@@ -6,9 +6,10 @@ wheel>=0.29
 
 # data science
 numpy
-pandas
+# pandas
 tensorflow-cpu
 gensim
+matplotlib
 
 # tests/linter
 # black

@@ -10,7 +10,6 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 import gensim.downloader as api
 # from gensim.models import KeyedVectors
-import pandas as pd
 
 from tensorflow.keras.layers import Dropout  #MultiHeadAttention,LayerNormalization,Layer
 from tensorflow.keras.layers import Input, GlobalAveragePooling1D, Dense #Embedding
