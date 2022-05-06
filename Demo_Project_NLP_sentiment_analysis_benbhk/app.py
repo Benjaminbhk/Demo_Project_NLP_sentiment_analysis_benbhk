@@ -118,3 +118,8 @@ if sentence != '':
     plt.rc('font', **font)
 
     st.pyplot(fig)
+
+st.markdown('''---''')
+st.write(
+        "My [page/portfolio](https://inky-distance-393.notion.site/Hi-I-am-Benjamin-Barre-Data-Scientist-f8a4416f9dc64d9ab8c677a5a32ab03d)."
+    )
