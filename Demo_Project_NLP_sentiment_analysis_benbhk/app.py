@@ -53,6 +53,15 @@ if 'vectors_reloaded' not in st.session_state:
     # vectors_reloaded = st.session_state['vectors_reloaded']
     st.markdown('''Word2Vec model loaded''')
 
+st.markdown('''
+            If you are looking for some inspiration, here are some links to twitter accounts :
+            - [Barack Obama](https://twitter.com/BarackObama?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+            - [Elon Musk](https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+            - [CNN](https://twitter.com/CNN?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+            - [Cristiano Ronaldo](https://twitter.com/Cristiano?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+            - [The New York Times](https://twitter.com/nytimes?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+            ''')
+
 sentence = st.text_area('Text to analyze (Press ctrl + enter to run)', value="",placeholder="Your text here")
 
 if sentence != '':
@@ -79,14 +88,7 @@ if sentence != '':
     # -------------------------------------------------------------------------------------------------#
     # Text imput and processing
 
-    st.markdown(
-        '''If you are looking for some inspiration, here are some links to twitter accounts..
-                - [Barack Obama](https://twitter.com/BarackObama?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
-                - [Elon Musk](https://twitter.com/elonmusk?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
-                - [CNN](https://twitter.com/CNN?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
-                - [Cristiano Ronaldo](https://twitter.com/Cristiano?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
-                - [The New York Times](https://twitter.com/nytimes?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
-                ''')
+
 
     sentence = str.encode(sentence)
     sentence = text_to_word_sequence(sentence.decode("utf-8"))
