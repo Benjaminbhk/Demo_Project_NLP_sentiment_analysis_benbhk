@@ -1,4 +1,5 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 # from tensorflow.keras import layers, Sequential, models
 # import pickle as pkl
 from PIL import Image
@@ -44,9 +45,8 @@ st.markdown('''---''')
 
 if 'vectors_reloaded' not in st.session_state:
     st.markdown(
-        '''Loading of the Word2Vec model (glove-wiki-gigaword-200). Loading may take several minutes.'''
+        '''Loading of the Word2Vec model (glove-wiki-gigaword-200). Loading may take several minutes (cheap deployment as it is just a demonstration model).'''
     )
-    st.markdown('''(cheap deployment as it is just a demonstration model)''')
     # st.session_state['vectors_reloaded'] = KeyedVectors.load_word2vec_format(
     #     'Demo_Project_NLP_sentiment_analysis_benbhk/models/glove-wiki-gigaword-200.txt',
     #     binary=False)
@@ -57,25 +57,6 @@ if 'vectors_reloaded' not in st.session_state:
 sentence = st.text_area('Text to analyze (Press ctrl + enter to run)', value="",placeholder="Your text here")
 
 if sentence != '':
-
-    # realoded W2V
-    # st.markdown('''Loading of the Word2Vec model (glove-wiki-gigaword-200). This may takes some minutes to load.''')
-    # st.markdown('''(cheap deployment as it is just a demonstration model)''')
-    # vectors_reloaded = KeyedVectors.load_word2vec_format('Demo_Project_NLP_sentiment_analysis_benbhk/models/glove-wiki-gigaword-200.txt', binary=False)
-    # st.markdown('''realoded W2V Loaded''')
-
-    # -------------------------------------------------------------------------------------------------#
-
-
-    # model_XGB = pkl.dump(model, open('/content/model_Adam_5cat_with_transformer_save_weights.h5', 'wb'))
-
-    # -------------------------------------------------------------------------------------------------#
-
-    # model_TK = pkl.dump(model, open('/content/model_Adam_5cat_with_transformer_save_weights.h5', 'wb'))
-
-
-    # -------------------------------------------------------------------------------------------------#
-    # model_TR
 
     embed_dim = 200  # Embedding size for each token
     num_heads = 1  # Number of attention heads
@@ -107,8 +88,20 @@ if sentence != '':
     prediction = model_TR.predict(sentence).tolist()[0]
 
 
-    st.write(f'prediction : {prediction}')
+    # st.write(f'prediction : {prediction}')
 
-    chart_data = pd.DataFrame(prediction,
-                              columns=['Sentiment_analysis'])
-    st.line_chart(chart_data)
+    fig, ax = plt.subplots(figsize=(15, 4))
+    plt.bar(
+        ['Very negative', 'Negative', 'Neutral', 'Positive', 'Very positive'],
+        prediction,
+        color=['darkred', 'indianred', 'lightskyblue', 'mediumseagreen', 'darkgreen'])
+    plt.xlabel('Sentiment Analysis')
+    plt.xticks(rotation=45, ha="center")
+    plt.ylabel('Prediction in %')
+
+
+    font = {'family' : 'normal',
+            'size'   : 15}
+    plt.rc('font', **font)
+
+    st.pyplot(fig)
