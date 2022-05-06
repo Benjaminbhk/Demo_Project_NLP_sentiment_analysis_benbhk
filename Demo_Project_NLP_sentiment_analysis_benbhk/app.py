@@ -39,14 +39,15 @@ st.write('You can check the code on github.')
 # st.write('- The second model uses the classical Tesorflow.Keras library (Adam optimization)')
 # st.write('- The third model also uses the Tesorflow.Keras library with an attention based Transformer (Adam optimization as well)')
 st.write("Link to the [github repo](https://github.com/Benjaminbhk/Demo_Project_NLP_sentiment_analysis_benbhk.git)")
-st.write(
-    "You can visit my [page/portfolio](https://inky-distance-393.notion.site/Hi-I-am-Benjamin-Barre-Data-Scientist-f8a4416f9dc64d9ab8c677a5a32ab03d) while it loads."
-)
+
 st.markdown('''---''')
 
 if 'vectors_reloaded' not in st.session_state:
     st.markdown(
         '''Loading of the Word2Vec model (glove-wiki-gigaword-200). Loading may take several minutes (cheap deployment as it is just a demonstration model).'''
+    )
+    st.write(
+        "You can visit my [page/portfolio](https://inky-distance-393.notion.site/Hi-I-am-Benjamin-Barre-Data-Scientist-f8a4416f9dc64d9ab8c677a5a32ab03d) while it loads."
     )
     # st.session_state['vectors_reloaded'] = KeyedVectors.load_word2vec_format(
     #     'Demo_Project_NLP_sentiment_analysis_benbhk/models/glove-wiki-gigaword-200.txt',
